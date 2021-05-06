@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org" xmlns:>
 <head>
 <title>Accueil</title>
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
@@ -8,15 +9,15 @@
 	<div class="form_bloc2">
         <h2 class="titre-media">Mediatheque des Deux-Sevre</h2>
 
-	<form  th:action="@{/findMedia}"  th:object="${findMediaForm}" method="POST">		      
-		<input  class="recherche" type="text" th:field="*{findMediaForm.title}" placeholder="Rechercher">                
+	<form th:action="@{/findMedia}" th:object="${findMediaForm}" method="POST">
+		<input  class="recherche" type="text" th:field="${findMediaForm.title}" placeholder="Rechercher">
 		
-		<button type="submit" class="recherche_ok" >OK</button>       
+		<button type="submit" class="recherche_ok" >OK</button>
 	</form>
 	<table border="1">
 		<tr th:each="media : ${medias}">
 			<td th:utext="${media.title}">...</td>
-			<td><a th:href="@{/consultmedia/${media.id}}"><img th:src="@{/images/consult.png}" /></a></td>
+			<td><a th:href="@{'/consultmedia/' + ${media.id}}"><img th:src="@{/images/consult.png}" /></a></td>
 			<td><a th:href="@{/consultmedia/media.id}"><img th:src="@{/images/edit.png}" /></a></td>
 			<td><a th:href="@{/consultmedia/media.id}"><img th:src="@{/images/delete.png}" /></a></td>
 		</tr>

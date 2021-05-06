@@ -30,7 +30,15 @@ public class Media {
 	public Media() {
 		super();
 	}
-	
+
+	public String getAuteur() {
+		return auteur;
+	}
+
+	public void setAuteur(String auteur) {
+		this.auteur = auteur;
+	}
+
 	public Long getId() {
 		return id;
 	}

@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,29 +22,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.project.stage.dao.MediathequeRepository;
 import com.project.stage.entities.Media;
 import com.project.stage.forms.FindMediaForm;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class MediathequeController {
 
 	@Autowired
 	private MediathequeRepository mediathequeRepository;
+
+	@ModelAttribute("findMediaForm")
+	public FindMediaForm populateFindMediaForm(){
+		return new FindMediaForm();
+	}
+
+	@ModelAttribute("medias")
+	public List<Media> populateMedias(){return mediathequeRepository.findAll();}
 	
 	@GetMapping(value = { "/", "/index" })
 	public String index(Model model, HttpServletRequest request) {
 
-		// initialiser le formulaire
-		FindMediaForm findMediaForm = new FindMediaForm();
-		model.addAttribute("findMediaForm", findMediaForm);
-
 		List<Media> medias = (List<Media>) request.getSession().getAttribute("medias");
+		// List<Media> medias = (List<Media>) model.getAttribute("medias");
 
+
+		// recherche vide on ramène tous les médias
 		if (medias == null || medias.isEmpty()) {
 			// Appeler Dao pour remonter tous les média
 			medias = mediathequeRepository.findAll();
-
-			// Mettre la liste de média dans le model.addAttribute
-			request.getSession().setAttribute("medias", medias);
-
 		}
 		model.addAttribute("medias", medias);
 
@@ -52,11 +58,11 @@ public class MediathequeController {
 
 	@RequestMapping(value = { "/findMedia" }, method = RequestMethod.POST)
 	public String findMedia(@ModelAttribute("findMediaForm") FindMediaForm findMediaForm, Model model,
-			HttpServletRequest request) {
+							HttpServletRequest request) {
 
 		// appeler le dao pour rechercher un media.
 		List<Media> medias = mediathequeRepository.findByTitle(findMediaForm.getTitle());
-		//model.addAttribute("medias", medias);
+		// model.addAttribute("medias", medias);
 
 		request.getSession().setAttribute("medias", medias);
 

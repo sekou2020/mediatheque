@@ -11,7 +11,7 @@
     <div class="container">
         <div class="form_bloc">
             <h2>Ajout média</h2>
-            <form action="#" th:action="@{/addMedia}"  th:object="${addMediaForm}" method="POST">
+            <form action="#" method="POST" th:action="@{/addMedia}" th:object="${addMediaForm}">
         
                     <label for="type">Type :</label>
                     <select id="type" name="type" class="select-type">

@@ -8,26 +8,29 @@
     <div class="container">
         <div class="form_bloc">
             <h2>Consultation de media</h2>
-            <form   name="form_suppression" action="" method="POST">
+            <div   name="form_suppression" action="" method="POST">
             
                 
                 <div class="input_wraper">
                     <label for="type">Type :</label>
-                    <input  class="input_type" id="type" name="type" type="text" placeholder="type" readonly="readonly"/>
+                    <span class="input_type" id = "type"  th:text="${media.typeMedia.typeMedia}"></span>
+                    <!--<input  class="input_type" id="type" name="type" type="text" placeholder="type" readonly="readonly"/> -->
                 </div>
                 
                 <div class="input_wraper">
                     <label for="titre">Titre :</label>
-                    <input class="input_type" id="titre" name="titre" type="text" placeholder="titre" readonly="readonly"/>
+                    <span class="input_type" id = "titre"  th:text="${media.title}"></span>
+                    <!-- <input class="input_type" id="titre" name="titre" type="text" placeholder="titre" readonly="readonly"/> -->
                 </div>
                
                 <div class="input_wraper">
-                    <label for="type">Résumé :</label>
-                    <input id="resume" name="resume" type="text" placeholder="resume" readonly="readonly"/>
+                    <label for="description">Resume :</label>
+                    <span class="input_type" id = "description"  th:text="${media.description}"></span>
+                    <!--<input id="resume" name="resume" type="text" placeholder="resume" readonly="readonly"/> -->
                 </div>
                 <button type="submit" id="modifier">Modifier</button>
                 
-            </form>
+            </div>
         </div>
     
     </div>
