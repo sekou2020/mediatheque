@@ -17,8 +17,11 @@ public class Media {
 	
 	@Column(name="resume")
 	private String description;
-	
-	@OneToOne
+
+	@Column(name = "auteur")
+	private String auteur;
+
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_type_media", referencedColumnName = "id_type_media")
 	private TypeMedia typeMedia;
 	
