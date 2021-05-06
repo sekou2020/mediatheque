@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajout_media</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form_bloc">
+            <h2>Ajout média</h2>
+            <form action="#" th:action="@{/addMedia}"  th:object="${addMediaForm}" method="POST">
+        
+                    <label for="type">Type :</label>
+                    <select id="type" name="type" class="select-type">
+					    <option value="livre">Livre</option>
+					    <option value="cd">CD</option>
+					    <option value="dvd">DVD</option>
+					    <option value="magazine">Magazine</option>
+				    </select>
+
+                
+                <div class="input_ajouter">
+                    <label for="titre">Titre :</label>
+                    <input  the:field="*{title}" id="title" name="title" type="text" placeholder="title" />
+                </div>
+               
+                <div class="input_ajouter">
+                    <label for="type" class="resume">Résumé :</label>
+                    <input the:field="*{resume}" id="resume" name="resume" type="text" placeholder="resume" />
+                </div>
+                <button type="submit" id="ajouter">Ajouter</button>
+                
+            </form>
+        </div>
+    
+    </div>
+
+                   
+</body>
+</html>

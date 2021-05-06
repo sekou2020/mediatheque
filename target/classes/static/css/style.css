@@ -1,0 +1,166 @@
+@charset "ISO-8859-1";
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.flex-container {
+    background-color: #eee;
+  
+    padding: 2em 3em ;
+}
+.flex-container > div{
+    font-size: 1.23em;
+    padding-bottom: 1rem;
+}
+
+button {
+    cursor: pointer;
+    width: 120px;
+    border-color:black;
+    padding: 0.3em;
+}
+.flex-items button:not(:first-child) {
+    margin-left: 1rem;
+}
+
+li {
+    list-style: none;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+input {
+    margin-top: 1.3rem;
+    padding: 0.4em;
+}
+.form_bloc {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    background-color: #eee;
+    
+    padding: 2em;
+    text-align: center;
+}
+.input_type {
+    transform:translateX(20px);
+}
+#modifier {
+    /*transform:translateX(95px);
+    padding: 0.4em;*/
+    transform: translateX(71px);
+    padding: 0.4em;
+    margin-top: 1rem;
+
+
+}
+
+
+.form_bloc2 {
+    width: 40%;
+    margin: 0 auto;
+    background-color: #eee;
+    padding: 2em;
+    text-align: center;
+    
+}
+.entete {
+    display: block;
+}
+#submit {
+    transform:translateX(10px);
+}
+td {
+    border: 1px solid black;
+    width: 20%;
+  padding: 10px;
+  text-align: left;
+}
+
+table {
+    width: 100%;
+    margin: 1rem auto;
+    border-collapse: collapse; 
+}
+
+td a {
+   display: block;
+   text-align: center;
+}
+.titre-media {
+    
+    margin-left: -7rem;
+    font-size: 36px;
+}
+
+.recherche{
+    width: 409px;
+    margin-left: -8rem;
+}
+.recherche_ok {
+    width: 53px;
+}
+
+#media {
+    margin-left: 33rem;
+    width: 82px;
+}
+button {
+    padding: 0.3em;
+}
+
+#popup {
+    display: flex;
+    align-content: center;
+}
+
+.select-type {
+    padding: 0.4em ;
+    width: 173px;
+    transform: translateX(31px);
+
+}
+
+#ajouter {
+    margin-top: 1.3rem;
+    margin-left: 12.3rem;
+    width: 82px;
+}
+
+
+.input_ajouter input {
+    transform: translateX(33px);
+
+
+
+
+
+
+
+    
+}
+
+#resume{
+    transform: translateX(12px);
+}
+.resume {
+    margin-left: 1.3rem;
+}
+
+h2{
+    font-weight: bold;
+    text-align: center;
+    margin-left: 6rem;
+}
+
+
+
