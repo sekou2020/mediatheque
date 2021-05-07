@@ -1,10 +1,16 @@
 package com.project.stage.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 
 
 @Entity
-@Table(name = "media")
 public class Media {
 	
 	@Id
@@ -17,11 +23,8 @@ public class Media {
 	
 	@Column(name="resume")
 	private String description;
-
-	@Column(name = "auteur")
-	private String auteur;
-
-	@ManyToOne(fetch = FetchType.LAZY)
+	
+	@OneToOne
 	@JoinColumn(name = "id_type_media", referencedColumnName = "id_type_media")
 	private TypeMedia typeMedia;
 	
@@ -30,15 +33,7 @@ public class Media {
 	public Media() {
 		super();
 	}
-
-	public String getAuteur() {
-		return auteur;
-	}
-
-	public void setAuteur(String auteur) {
-		this.auteur = auteur;
-	}
-
+	
 	public Long getId() {
 		return id;
 	}

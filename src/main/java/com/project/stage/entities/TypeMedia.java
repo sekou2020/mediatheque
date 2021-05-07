@@ -1,11 +1,14 @@
 package com.project.stage.entities;
 
-import javax.persistence.*;
-import java.util.Collection;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 
 
 @Entity
-@Table( name = "type_media")
 public class TypeMedia {
 	
 	@Id
@@ -16,10 +19,6 @@ public class TypeMedia {
 	
 	@Column(name = "type")
 	private String typeMedia;
-
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "typeMedia")
-	Collection<Media> medias;
 
 
 	public long getIdTypeMedia() {

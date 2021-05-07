@@ -89,9 +89,9 @@ public class MediathequeController {
 
 	@RequestMapping(value = {"/deletemedia/{id}"}, method =  POST)
 	@Transactional
-	public String deleteMedia(@ModelAttribute("medoa") Media media, Model model){
+	public String deleteMedia(@ModelAttribute("medoa") Media media, Model model, HttpServletRequest request){
 		mediathequeRepository.deleteMediaById(media.getId());
-		model.addAttribute("medias", mediathequeRepository.findAll());
+		request.getSession().setAttribute("medias", mediathequeRepository.findAll());
 		return "redirect:index";
 	}
 
