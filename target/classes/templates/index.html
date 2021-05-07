@@ -18,8 +18,11 @@
 		<tr th:each="media : ${medias}">
 			<td th:utext="${media.title}">...</td>
 			<td><a th:href="@{'/consultmedia/' + ${media.id}}"><img th:src="@{/images/consult.png}" /></a></td>
-			<td><a th:href="@{/consultmedia/media.id}"><img th:src="@{/images/edit.png}" /></a></td>
-			<td><a th:href="@{/consultmedia/media.id}"><img th:src="@{/images/delete.png}" /></a></td>
+			<td><a th:href="@{/editmedia/{id}(id = ${media.id})}"><img th:src="@{/images/edit.png}" /></a></td>
+			<form method="POST" th:object="media" th:action="@{/deletemedia}" >
+				<td><button type="submit" name="submit" value="value"><img th:src="@{/images/delete.png}" /></button></td>
+			</form>
+
 		</tr>
 	</table>
 	<a href="ajoutMedia">Ajouter</a>

@@ -6,8 +6,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,14 +55,14 @@ public class MediathequeController {
 		// recherche vide on ramène tous les médias
 		if (medias == null || medias.isEmpty()) {
 			// Appeler Dao pour remonter tous les média
-			medias = mediathequeRepository.findAll();
+			medias = (List<Media>) mediathequeRepository.findAll();
 		}
 		model.addAttribute("medias", medias);
 
 		return "index";
 	}
 
-	@RequestMapping(value = { "/findMedia" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/findMedia" }, method = POST)
 	public String findMedia(@ModelAttribute("findMediaForm") FindMediaForm findMediaForm, Model model,
 							HttpServletRequest request) {
 
@@ -69,9 +75,8 @@ public class MediathequeController {
 		return "redirect:index";
 	}
 	
-	@RequestMapping(value = { "/consultmedia/{id}" }, method = RequestMethod.GET)
-	public String consultMedia(@PathVariable("id") String id , Model model,
-			HttpServletRequest request) {
+	@RequestMapping(value = { "/consultmedia/{id}" }, method = GET)
+	public String consultMedia(@PathVariable("id") String id , Model model) {
 		
 
 		// appeler le dao pour rechercher un media.
@@ -82,7 +87,23 @@ public class MediathequeController {
 		return "consultMedia";
 	}
 
-	@RequestMapping(value = { "/addMedia" }, method = RequestMethod.POST)
+	@RequestMapping(value = {"/deletemedia/{id}"}, method =  POST)
+	@Transactional
+	public String deleteMedia(@ModelAttribute("medoa") Media media, Model model){
+		mediathequeRepository.deleteMediaById(media.getId());
+		model.addAttribute("medias", mediathequeRepository.findAll());
+		return "redirect:index";
+	}
+
+	@RequestMapping(value = {"/editmedia/{id}"}, method = POST)
+	public String editMediat(@PathVariable("id") String id, Model model){
+		// appeler le dao pour rechercher un media.
+		Optional<Media> media = mediathequeRepository.findById(Long.parseLong(id));
+		model.addAttribute("media", media.get());
+		return "redirect:index";
+	}
+
+	@RequestMapping(value = { "/addMedia" }, method = POST)
 	public String addMedia(Model model) {
 
 		// model.addAttribute("medias", medias);
