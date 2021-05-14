@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Repository
-public interface MediathequeRepository extends JpaRepository<Media, Long> {
+public interface MediaRepository extends JpaRepository<Media, Long> {
 	
 	
 	@Query("SELECT m FROM Media m  WHERE m.title like %:pTitle%")

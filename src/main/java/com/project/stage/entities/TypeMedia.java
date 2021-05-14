@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class TypeMedia {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_type_media")
 	private long idTypeMedia;
 	

@@ -5,35 +5,36 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-    <div class="container">
-        <div class="form_bloc">
+    <div class="consultation-block">
+        <div name="form_co" class="form-consultation">
             <h2>Consultation de media</h2>
-            <div   name="form_suppression">
-            
-                
-                <div class="input_wraper">
-                    <label for="type">Type :</label>
-                    <span class="input_type" id = "type"  th:text="${media.typeMedia.typeMedia}"></span>
-                    <!--<input  class="input_type" id="type" name="type" type="text" placeholder="type" readonly="readonly"/> -->
-                </div>
-                
-                <div class="input_wraper">
-                    <label for="titre">Titre :</label>
-                    <span class="input_type" id = "titre"  th:text="${media.title}"></span>
-                    <!-- <input class="input_type" id="titre" name="titre" type="text" placeholder="titre" readonly="readonly"/> -->
-                </div>
-               
-                <div class="input_wraper">
-                    <label for="description">Resume :</label>
-                    <span class="input_type" id = "description"  th:text="${media.description}"></span>
-                    <!--<input id="resume" name="resume" type="text" placeholder="resume" readonly="readonly"/> -->
-                </div>
-                <button type="submit" id="modifier">Modifier</button>
+
+            <div class="label-bloc">
+                <label for="type">Type :</label>
+                <span class="span_type" id="type" th:text="${media.typeMedia.typeMedia}"></span>
+                    
+            </div>
+
+            <div class="label-bloc">
+                <label for="titre">Titre :</label>
+                <span class="span_type" id="titre" th:text="${media.title}"></span>
+
+            </div>
+
+            <div class="label-bloc">
+                <label for="description">Resume :</label>
+                <span  id="description"
+                    th:text="${media.description}"></span>
+            </div>
+
+            <div class="form-consultation-modifier">
+                <a th:href="@{'/displayUpdateMedia/' + ${media.id}}">Modifier</a>
                 
             </div>
+
         </div>
-    
     </div>
+
 
                    
 </body>

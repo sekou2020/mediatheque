@@ -1,5 +1,6 @@
 package com.project.stage.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +15,7 @@ import javax.persistence.OneToOne;
 public class Media {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column(name = "id_media")
 	private Long id;	
 	
@@ -24,7 +25,7 @@ public class Media {
 	@Column(name="resume")
 	private String description;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.DETACH)
 	@JoinColumn(name = "id_type_media", referencedColumnName = "id_type_media")
 	private TypeMedia typeMedia;
 	
