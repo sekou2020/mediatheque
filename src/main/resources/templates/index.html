@@ -6,8 +6,8 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
 	<script src="js/popupDialog.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jQuerry.js"></script>
+	<script src="js/jQuery.js"></script>
+	<script src="js/jquery-ui.js"></script>
 </head>
 <body>
 	<div class="form_bloc2">
@@ -24,11 +24,19 @@
 			<td class="lien-icon">
 				<a th:href="@{'/consultmedia/' + ${media.id}}"><img th:src="@{/images/consult.png}" /></a>
 				<a th:href="@{'/displayUpdateMedia/' + ${media.id}}"><img th:src="@{/images/edit.png}" /></a>
-				<a th:href="@{'/deletemedia/' + ${media.id}}"><img th:src="@{/images/delete.png}" /></a>
+				<a th:class="deletemedia" ><img th:src="@{/images/delete.png}" /></a>
 			</td>
 		</tr>
 	</table>
 	  <div class="btn_ajouter"> <a th:href="@{'/displayAddMedia'}">Ajouter</a>  </div>
 	</div>
+
+	<script>
+		$(".deletemedia").click(function () {
+			// th:href="@{'/deletemedia/' + ${media.id}}"
+			console.log('on a viens de te supprimer')
+			afficherPopupConfirmationLien('voulez vous supprimer le media ? ', '');
+		})
+	</script>
 </body>
 </html>
