@@ -20,18 +20,8 @@ function afficherPopupConfirmationLien(question, lien) {
                 class: "ui-state-question",
                 click: function () {
                     $(this).dialog("close");
-                    var hrefdefini = false;
-                    if (lien != null) {
-                        if ($(lien).attr("href") != undefined) {
-                            hrefdefini = true;
-                            // affiche la page de l'attribut href
-                            window.location.href = $(lien).attr("href");
-                        }
-                    }
-                    if (!hrefdefini) {
-                        // réaffiche la page actuelle
-                        window.location.reload();
-                    }
+                    window.location.href = $(lien).attr("href");
+                    $.get(lien);
                     $("#popupconfirmation").remove();
                 }
             },
