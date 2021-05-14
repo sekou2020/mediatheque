@@ -45,13 +45,6 @@ function afficherPopupConfirmationLien(question, lien) {
             }
         ]
     });
-
- 
-
     $("#popupconfirmation").prev().addClass('ui-state-question');
-
- 
-
     return popup;
-
 }
