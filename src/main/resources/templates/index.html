@@ -36,7 +36,7 @@
 			// th:href="@{'/deletemedia/' + ${media.id}}"
 			event.preventDefault();
 			console.log('id ', this.id);
-			let  lien = "localhost:8080/deletemedia/" + this.id;
+			let  lien = "./deletemedia/" + this.id;
 			afficherPopupConfirmationLien('voulez vous supprimer le media ? ', lien);
 		})
 	</script>

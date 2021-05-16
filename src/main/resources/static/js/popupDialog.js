@@ -20,8 +20,13 @@ function afficherPopupConfirmationLien(question, lien) {
                 class: "ui-state-question",
                 click: function () {
                     $(this).dialog("close");
-                    window.location.href = $(lien).attr("href");
-                    $.get(lien);
+                   $.ajax({
+                        url: lien,
+                        type: "GET",
+                        contentType: "application/json",
+                        cache: false,
+                        timeout: 600000,
+                    });
                     $("#popupconfirmation").remove();
                 }
             },
