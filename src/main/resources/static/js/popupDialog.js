@@ -2,7 +2,7 @@
 
  
 
-function afficherPopupConfirmationLien(question, lien) {
+function afficherPopupConfirmationLien(question, lien, requestType, refresh) {
 
     // crée la division qui sera convertie en popup
     $('body').append('<div id="popupconfirmation" title="Confirmation"></div>');
@@ -22,10 +22,15 @@ function afficherPopupConfirmationLien(question, lien) {
                     $(this).dialog("close");
                    $.ajax({
                         url: lien,
-                        type: "GET",
+                        type: requestType,
                         contentType: "application/json",
                         cache: false,
                         timeout: 600000,
+                       success: function () {
+                            if( refresh ){
+                                location.reload();
+                            }
+                       },
                     });
                     $("#popupconfirmation").remove();
                 }
