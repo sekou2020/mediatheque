@@ -6,37 +6,38 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-    <div class="container">
-        <div class="form-ajout">
+    <div class="ajout-container">
+        <div class="box-ajout">
             <h2>Ajout média</h2>
             <form  method="POST" th:action="@{/addMedia}" th:object="${mediaForm}">
-        
+                <div class="flex-element ">
                     <label for="type">Type :</label>
                     <select th:field="${mediaForm.idTypeMedia}">
                          <option value=""> -- </option>
                          <option th:each="typeMedia : ${typesMedia}"
                             th:value="${typeMedia.idTypeMedia}"
                             th:utext="${typeMedia.typeMedia}"/>
+                        
                   </select>
-
-                <div class="input_ajouter">
+                </div>
+                <div class="flex-element">
                     <label for="titre">Titre :</label>
-                    <input class="input-align"  type="text" th:field="${mediaForm.title}">
+                    <input class="input-titre-ajout"  type="text" th:field="${mediaForm.title}">
                 </div>
                
-                <div class="input_ajouter">
+                <div class="flex-element">
                     <label for="type" class="resume">Résumé :</label>
-                    <textarea  th:field="${mediaForm.description}" ></textarea>
+                    <textarea  th:field="${mediaForm.description}" rows="1" cols="11" ></textarea>
                 </div>
-                
-                <div class="form-ajout-ajouter">
-                	<button type="submit" id="ajouter">Ajouter</button>
-                	
+               
+                <div class="flex-element">
+                <button type="submit" id="ajouter">Ajouter</button>
+               
                 </div>
-                
+               
             </form>
         </div>
-    
+   
     </div>
 
                    
