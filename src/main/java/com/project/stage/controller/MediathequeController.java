@@ -86,10 +86,10 @@ public class MediathequeController {
 		List<Media> medias = mediaRepository.findAll();
 		
 		//return "redirect:index";
-		request.getSession().setAttribute("medias",medias);
+		// request.getSession().setAttribute("medias",medias);
 		model.addAttribute("medias", medias);
 
-		return "index";
+		return "index :: #tableMedia";
 	}
 
 	@RequestMapping(value = {"/displayUpdateMedia/{id}"}, method = GET)

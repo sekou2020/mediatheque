@@ -20,7 +20,7 @@
 		<button type="submit" class="recherche_ok" >OK</button>
 	</form>
 	<table border="1">
-		<tr th:each="media : ${medias}">
+		<tr  th:id="tableMedia" th:each="media : ${medias}">
 			<td th:utext="${media.title}">...</td>
 			<td class="lien-icon">
 				<a th:href="@{'/consultmedia/' + ${media.id}}"><img th:src="@{/images/consult.png}" /></a>
@@ -36,8 +36,7 @@
 		$(".deletemedia").click(function (event) {
 			event.preventDefault();
 			let  lien = "./deletemedia/" + this.id;
-			afficherPopupConfirmationLien('voulez vous supprimer le media ? ', lien, "GET", true);
-			$.notify("le media a bien été supprimé", "success");
+			afficherPopupConfirmationLien('voulez vous supprimer le media ? ', lien, "GET");
 		})
 	</script>
 </body>

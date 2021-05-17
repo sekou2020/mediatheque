@@ -1,6 +1,6 @@
 //Affichage de la Popup de Confirmation('Voulez-vous supprimez ce media?);
 
-function afficherPopupConfirmationLien(question, lien, requestType, refresh) {
+function afficherPopupConfirmationLien(question, lien, requestType) {
     // crée la division qui sera convertie en popup
     $('body').append('<div id="popupconfirmation" title="Confirmation"></div>');
     $("#popupconfirmation").html(question);
@@ -17,16 +17,20 @@ function afficherPopupConfirmationLien(question, lien, requestType, refresh) {
                 class: "ui-state-question",
                 click: function () {
                     $(this).dialog("close");
+                    /*
+                    $.get(lien).done(function (fragment) {
+                        $.notify("le media a bien été supprimé", "success");
+                        $("#tableMedia").replaceWith(fragment);
+                    }) */
                    $.ajax({
                         url: lien,
                         type: requestType,
                         contentType: "application/json",
                         cache: false,
                         timeout: 600000,
-                       success: function () {
-                            if( refresh ){
-                                location.reload();
-                            }
+                       success: function (fragment) {
+                           $.notify("le media a bien été supprimé", "success");
+                           $("#tableMedia").replaceWith(fragment);
                        },
                     });
                     $("#popupconfirmation").remove();
