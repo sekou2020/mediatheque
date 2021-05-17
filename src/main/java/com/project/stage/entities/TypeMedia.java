@@ -1,14 +1,10 @@
 package com.project.stage.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 
 
 @Entity
+@Table(name = "type_media")
 public class TypeMedia {
 	
 	@Id
