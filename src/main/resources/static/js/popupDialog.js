@@ -1,7 +1,5 @@
 //Affichage de la Popup de Confirmation('Voulez-vous supprimez ce media?);
 
- function afficherPopupConfirmationLien(question, lien) {
-
 function afficherPopupConfirmationLien(question, lien, requestType, refresh) {
     // crée la division qui sera convertie en popup
     $('body').append('<div id="popupconfirmation" title="Confirmation"></div>');
