@@ -12,22 +12,22 @@
             <form  method="POST" th:action="@{/addMedia}" th:object="${mediaForm}">
                 <div class="flex-element ">
                     <label for="type">Type :</label>
-                    <select th:field="${mediaForm.idTypeMedia}">
+                    <select required th:field="${mediaForm.idTypeMedia}">
                          <option value=""> -- </option>
                          <option th:each="typeMedia : ${typesMedia}"
                             th:value="${typeMedia.idTypeMedia}"
-                            th:utext="${typeMedia.typeMedia}"/>
+                            th:utext="${typeMedia.typeMedia}"></option>
                         
                   </select>
                 </div>
                 <div class="flex-element">
                     <label for="titre">Titre :</label>
-                    <input class="input-titre-ajout"  type="text" th:field="${mediaForm.title}">
+                    <input class="input-titre-ajout" required type="text" th:field="${mediaForm.title}">
                 </div>
                
                 <div class="flex-element">
                     <label for="type" class="resume">Résumé :</label>
-                    <textarea  th:field="${mediaForm.description}" rows="1" cols="11" ></textarea>
+                    <textarea required  th:field="${mediaForm.description}" rows="1" cols="11" ></textarea>
                 </div>
                
                 <div class="flex-element">
@@ -36,6 +36,9 @@
                 </div>
                
             </form>
+            <button>
+                <a th:href="@{/index}">RETOUR</a>
+            </button>
         </div>
    
     </div>
