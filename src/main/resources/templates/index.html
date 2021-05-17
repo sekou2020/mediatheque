@@ -8,6 +8,7 @@
 	<script src="js/popupDialog.js"></script>
 	<script src="js/jQuery.js"></script>
 	<script src="js/jquery-ui.js"></script>
+	<script src="js/notify.min.js"></script>
 </head>
 <body>
 	<div class="form_bloc2">
@@ -33,11 +34,10 @@
 
 	<script>
 		$(".deletemedia").click(function (event) {
-			// th:href="@{'/deletemedia/' + ${media.id}}"
 			event.preventDefault();
-			console.log('id ', this.id);
 			let  lien = "./deletemedia/" + this.id;
 			afficherPopupConfirmationLien('voulez vous supprimer le media ? ', lien, "GET", true);
+			$.notify("le media a bien été supprimé", "success");
 		})
 	</script>
 </body>
