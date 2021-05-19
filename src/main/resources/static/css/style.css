@@ -35,10 +35,23 @@ li {
     max-width: 1200px;
     margin: 0 auto;
 }
-input {
-    margin-top: 1.3rem;
+
+/*formulaire modification*/
+.input-modif {
+    margin-top: 0.6rem;
     padding: 0.4em;
 }
+
+
+.modif-retour {
+	margin-left:9rem;
+	margin-top:0.3rem;
+	
+}
+
+
+
+
 .form_bloc {
     width: 40%;
     margin: 0 auto;
@@ -195,6 +208,12 @@ h2{
 	transform:translateX(20px);
 }
 
+
+.consult-retour {
+	transform: translateY(-21px)!important;
+	margin-left:3rem
+}
+
 /*formulaire ajout*/
 
 .ajout-container {
@@ -225,10 +244,23 @@ label {
 }
 
 #ajouter {
-    margin-left: 7.5rem;
+    margin-left: 12rem;
     padding: 0.2em 0.9em;
     margin-bottom: 1rem;
 
+}
+
+.lien-retour {
+	font-size: 14px;
+    transform: translateY(-47px);
+    display: block;
+    text-decoration: none;
+    color: black;
+    background-color: gray;
+    width: 76px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 0.2em;
 }
 
 /** pour les dialog jquery ui */
@@ -242,6 +274,10 @@ label {
     border-radius: 5px;
 }
 
+
+a {
+	text-decoration:none;
+}
 
 
 

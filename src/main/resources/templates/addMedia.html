@@ -26,19 +26,28 @@
                 </div>
                
                 <div class="flex-element">
-                    <label for="type" class="resume">Résumé :</label>
-                    <textarea required  th:field="${mediaForm.description}" rows="1" cols="11" ></textarea>
+                    <label for="type" >Résumé :</label>
+                    <textarea required  th:field="${mediaForm.description}" rows="2" cols="12" ></textarea>
                 </div>
                
                 <div class="flex-element">
                 <button type="submit" id="ajouter">Ajouter</button>
                
                 </div>
+                
+                
+                <div class="flex-element">
+               
+                
+                     <a th:href="@{/index}"  class="lien-retour">RETOUR</a>
+             
+               
+                </div>
+                
+                
                
             </form>
-            <button>
-                <a th:href="@{/index}">RETOUR</a>
-            </button>
+            
         </div>
    
     </div>

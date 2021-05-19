@@ -31,6 +31,9 @@ function afficherPopupConfirmationLien(question, lien, requestType) {
                        success: function (fragment) {
                            $.notify("le media a bien été supprimé", "success");
                            $("#tableMedia").replaceWith(fragment);
+                           
+                           //refresh
+                          location.reload();
                        },
                     });
                     $("#popupconfirmation").remove();
